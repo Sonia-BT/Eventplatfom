@@ -10,25 +10,26 @@ function Authentification() {
 
   const setData = async (e) => {
     e.preventDefault();
-    if (input1 && input2 && input3) {
-      const { data } = await axios.post(`http://localhost:5000/user`, {
-        username: input1,
-        email: input2,
-        password: input3,
-      });
-      setUsers([
-        ...users,
-        {
-          username: data.users.username,
-          email: data.users.email,
-          password: data.users.password,
-        },
-      ]);
-      setInput1("");
-      setInput2("");
-      setInput3("");
-    }
     try {
+      if (input1 && input2 && input3) {
+        const { data } = await axios.post(`http://localhost:5000/user`, {
+          username: input1,
+          email: input2,
+          password: input3,
+        });
+        setUsers([
+          ...users,
+          {
+            username: data.data.username,
+            email: data.data.email,
+            password: data.data.password,
+          },
+        ]);
+        setInput1("");
+        setInput2("");
+        setInput3("");
+      }
+      console.log(users);
     } catch (error) {
       console.log(error);
     }

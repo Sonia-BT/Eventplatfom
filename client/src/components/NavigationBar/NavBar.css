@@ -1,0 +1,70 @@
+.MainNavigation {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3.5rem;
+  background: #fdc763;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.NavigationLogo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.NavigationBar {
+  margin-left: 1.5rem;
+}
+.NavigationBar ul {
+  margin-right: 0.8rem;
+}
+
+.NavigationBar li {
+  margin: 0 0.5rem;
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  padding: 5px 10px;
+}
+
+.NavigationBar a {
+  text-decoration: none;
+  color: #000;
+  /* align-self: center; */
+}
+.NavigationBar a:hover,
+.NavigationBar a:active,
+.NavigationBar a.active {
+  color: #fff;
+}
+
+ul .Sub_Auth {
+  position: absolute;
+  background: #fdc763;
+  color: #fff;
+  list-style-type: none;
+  padding-left: 0px;
+  margin-left: -10px;
+  width: 100%;
+  margin-top: 15%;
+  opacity: 0;
+}
+
+ul .Sub_Auth li {
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+}
+
+ul .Sub_Auth li:hover {
+  color: #000;
+}
+
+.NavigationBar li:hover .Sub_Auth {
+  opacity: 1;
+}
