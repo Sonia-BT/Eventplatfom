@@ -35,77 +35,78 @@ function Authentification() {
     }
   };
   return (
-    <div className="BigContainer">
-      <form
-        className="SignIn_SignUp"
-        onSubmit={(e) => {
-          setData(e);
-        }}
-      >
-        <div className="SignInUpForm " id="SignUp">
-          <h3>Create account</h3>
-        </div>
-        <div className="message messageError"></div>
-        <div className="InfosForm">
-          <div className="Item">
-            <h5 className="Title">UserName</h5>
-            <input
-              type="text"
-              onChange={(e) => {
-                setInput1(e.target.value);
-              }}
-              value={input1}
-              autofocus
-              placeholder=" Mark89"
-            ></input>
+    <div className="Auth_Body">
+      <div className="BigContainer">
+        <form
+          className="SignIn_SignUp"
+          onSubmit={(e) => {
+            setData(e);
+          }}
+        >
+          <div className="SignInUpForm " id="SignUp">
+            <h3>Create account</h3>
           </div>
-          <div className="Item">
-            <h5 className="Title">Address Email</h5>
-            <input
-              type="text"
-              onChange={(e) => {
-                setInput2(e.target.value);
-              }}
-              value={input2}
-              placeholder=" MarkSmith@gmail.com"
-            ></input>
+          <div className="message messageError"></div>
+          <div className="InfosForm">
+            <div className="Item">
+              <h5 className="Title">UserName</h5>
+              <input
+                type="text"
+                onChange={(e) => {
+                  setInput1(e.target.value);
+                }}
+                value={input1}
+                autofocus
+                placeholder=" Mark89"
+              ></input>
+            </div>
+            <div className="Item">
+              <h5 className="Title">Address Email</h5>
+              <input
+                type="text"
+                onChange={(e) => {
+                  setInput2(e.target.value);
+                }}
+                value={input2}
+                placeholder=" MarkSmith@gmail.com"
+              ></input>
+            </div>
+            <div className="inputMessageError"></div>
+            <div className="Item">
+              <h5 className="Title">Create Password</h5>
+              <input
+                type="password"
+                className="InputError"
+                onChange={(e) => {
+                  setInput3(e.target.value);
+                }}
+                value={input3}
+                placeholder=" **********************"
+              ></input>
+            </div>
+            <div className="Item">
+              <h5 className="Title">Confirm Your Password</h5>
+              <input
+                type="password"
+                placeholder=" **********************"
+              ></input>
+            </div>
+            <div className="Item">
+              <button type="submit">Submit</button>
+            </div>
+            <div className="formText">
+              <p>
+                <a className="formLink" href="./" id="linkCreateAccount">
+                  Already have an account? Sign In?
+                </a>
+              </p>
+            </div>
           </div>
-          <div className="inputMessageError"></div>
-          <div className="Item">
-            <h5 className="Title">Create Password</h5>
-            <input
-              type="password"
-              className="InputError"
-              onChange={(e) => {
-                setInput3(e.target.value);
-              }}
-              value={input3}
-              placeholder=" **********************"
-            ></input>
-          </div>
-          <div className="Item">
-            <h5 className="Title">Confirm Your Password</h5>
-            <input
-              type="password"
-              placeholder=" **********************"
-            ></input>
-          </div>
-          <div className="Item">
-            <button type="submit">Submit</button>
-          </div>
-          <div className="formText">
-            <p>
-              <a className="formLink" href="./" id="linkCreateAccount">
-                Already have an account? Sign In?
-              </a>
-            </p>
-          </div>
-        </div>
-      </form>
+        </form>
 
-      {/* ----------------------------------------------SignUp--------------------------------------------------------*/}
+        {/* ----------------------------------------------SignUp--------------------------------------------------------*/}
 
-      {/* <form className="SignIn_SignUp HiddenSignInForm">
+        {/* <form className="SignIn_SignUp HiddenSignInForm">
         <div className="SignInUpForm" id="SignIn">
           <h3>Login</h3>
         </div>
@@ -144,6 +145,7 @@ function Authentification() {
           </div>
         </div>
       </form>*/}
+      </div>
     </div>
   );
 }
