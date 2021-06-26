@@ -1,8 +1,6 @@
 .MainNavigation {
-  position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
   height: 3.5rem;
   background: #fdc763;
   padding: 0 1rem;
@@ -50,7 +48,7 @@ ul .Sub_Auth {
   padding-left: 0px;
   margin-left: -10px;
   width: 100%;
-  margin-top: 15%;
+  margin-top: 5%;
   opacity: 0;
 }
 

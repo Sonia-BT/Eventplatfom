@@ -1,4 +1,4 @@
-.Auth_Body {
+/* .Auth_Body {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -64,7 +64,6 @@
   height: 35px;
   width: 100%;
   align-self: center;
-  /* border-color: #f8d196; */
   border-color: #dddddd;
   border-radius: 3px;
   outline: none;
@@ -136,4 +135,4 @@
 
 .messageSucces {
   color: green;
-}
+} */

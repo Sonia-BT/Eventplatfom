@@ -1,5 +1,6 @@
 import "./App.css";
-import Authentification from "./components/Pages/Authentification";
+import SignUp from "./components/Authentification/SignUp";
+import SignIn from "./components/Authentification/SignIn";
 import Events from "./components/Pages/Events";
 import Principal from "./components/Pages/Principal";
 import NavBar from "./components/NavigationBar/NavBar";
@@ -22,7 +23,8 @@ function App() {
             <Switch>
               <Redirect from="/" to="/Home" exact />
               <Route path="/Home" component={Principal} />
-              <Route path="/Authentification" component={Authentification} />
+              <Route path="/Authentification/SignUp" component={SignUp} />
+              <Route path="/Authentification/SignIn" component={SignIn} />
               <Route path="/Events" component={Events} />
             </Switch>
           </main>

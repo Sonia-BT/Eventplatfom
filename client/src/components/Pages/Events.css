@@ -1,3 +1,172 @@
-.h1 {
-  color: black;
+.EventPage {
+  height: 100vh;
+  margin-top: 2px;
+  display: flex;
+}
+
+.EventFilter {
+  width: 25%;
+  height: 91vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  background: #ecebeb;
+}
+/*-----------------------------SearchBar Part--------------------------------*/
+.searchBar {
+  display: flex;
+  /* border: darkblue 2px solid; */
+  width: 100%;
+  height: 15vh;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 3%;
+}
+
+.searchBar h1 {
+  margin-left: 1%;
+}
+
+.SearchForm {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  /* border: salmon 1px solid; */
+  height: 8vh;
+  width: 100%;
+}
+.SearchInput {
+  width: 73%;
+  height: 44px;
+  align-self: center;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+.SearchButton {
+  align-self: center;
+  height: 44px;
+  width: 23%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: #fab667;
+}
+
+.SearchButton:hover {
+  background: #000;
+}
+
+.SearchButton:active {
+  transform: scale(0.97);
+}
+
+.SearchButton .fas {
+  color: #000;
+  width: 100%;
+}
+
+.SearchButton .fa-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6vh;
+}
+
+.SearchButton .fas:hover {
+  color: #fab667;
+}
+
+/*---------------------------------Filter Part-----------------------------*/
+
+.formFilter {
+  display: flex;
+  flex-direction: column;
+  /* border: yellow 1px solid; */
+  height: 50vh;
+  width: 100%;
+  margin-top: 2%;
+}
+.formFilter h1 {
+  margin-left: 1%;
+}
+
+.Filters {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  /* border: red 1px solid; */
+  width: 100%;
+  /* margin-left: 2%; */
+}
+
+.OnlineEvent {
+  display: flex;
+  /* border: 1px solid black; */
+  align-items: center;
+  height: 8vh;
+  justify-content: space-evenly;
+}
+
+.OnlineEvent label {
+  font-weight: 600;
+  font-size: 2.5vh;
+}
+
+.OnlineEvent button {
+  color: #000;
+  background: #fab667;
+  width: 23%;
+  height: 44px;
+  font-size: 600;
+  font-weight: bold;
+  border-radius: 5px;
+  border: #fab667;
+  cursor: pointer;
+  /* margin-left: 3%; */
+}
+
+.OnlineEvent button:hover {
+  color: #fab667;
+  background: #000;
+}
+
+.OnlineEvent button:active {
+  transform: scale(0.98);
+}
+
+.Categories {
+  height: 5vh;
+  width: 90%;
+  outline: none;
+  margin-bottom: 2%;
+  margin-left: 1%;
+}
+
+.Format {
+  height: 5vh;
+  width: 90%;
+  outline: none;
+  margin-left: 1%;
+}
+
+h2 {
+  margin-left: 1%;
+  margin-bottom: 2%;
+}
+.Date {
+  height: 5vh;
+  width: 90%;
+  outline: none;
+  margin-left: 1%;
+}
+
+.Jours {
+  margin-top: 3%;
+}
+
+.Heure {
+  margin-top: 3%;
 }

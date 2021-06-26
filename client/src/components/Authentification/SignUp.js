@@ -1,8 +1,8 @@
-import "./Authentification.css";
+import "./SignUp.css";
 import { useState } from "react";
 import axios from "axios";
 
-function Authentification() {
+function SignUp() {
   const [users, setUsers] = useState([""]);
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
@@ -43,7 +43,7 @@ function Authentification() {
             setData(e);
           }}
         >
-          <div className="SignInUpForm " id="SignUp">
+          <div className="SignUpForm ">
             <h3>Create account</h3>
           </div>
           <div className="message messageError"></div>
@@ -96,58 +96,16 @@ function Authentification() {
             </div>
             <div className="formText">
               <p>
-                <a className="formLink" href="./" id="linkCreateAccount">
+                <a className="formLink" href="./SignIn">
                   Already have an account? Sign In?
                 </a>
               </p>
             </div>
           </div>
         </form>
-
-        {/* ----------------------------------------------SignUp--------------------------------------------------------*/}
-
-        {/* <form className="SignIn_SignUp HiddenSignInForm">
-        <div className="SignInUpForm" id="SignIn">
-          <h3>Login</h3>
-        </div>
-        <div className="message messageError"></div>
-        <div className="InfosForm">
-          <div className="Item">
-            <h5 className="Title">UserName/email</h5>
-            <input type="text" autofocus placeholder=" Mark89"></input>
-          </div>
-          <div className="inputMessageError"></div>
-          <div className="Item">
-            <h5 className="Title">Password</h5>
-            <input
-              type="password"
-              className="InputError"
-              placeholder=" **********************"
-            ></input>
-          </div>
-          <div className="Item">
-            <button type="submit">Submit</button>
-          </div>
-          <div className="formText">
-            <p>
-              <a href="#" className="formLink">
-                {" "}
-                Forgot Your Password?{" "}
-              </a>
-            </p>
-          </div>
-          <div className="formText">
-            <p>
-              <a className="formLink" href="./" id="linkCreateAccount">
-                Don't have an account? Create account?
-              </a>
-            </p>
-          </div>
-        </div>
-      </form>*/}
       </div>
     </div>
   );
 }
 
-export default Authentification;
+export default SignUp;

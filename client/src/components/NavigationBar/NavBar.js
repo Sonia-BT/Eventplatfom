@@ -16,13 +16,15 @@ function NavBar(props) {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/Authentification">
-              Connect <i class="fas fa-user"></i>
-              <ul className="Sub_Auth">
+            Connect <i class="fas fa-user"></i>
+            <ul className="Sub_Auth">
+              <NavLink to="/Authentification/SignIn">
                 <li>Sign In</li>
+              </NavLink>
+              <NavLink to="/Authentification/SignUp">
                 <li>Sign Up</li>
-              </ul>
-            </NavLink>
+              </NavLink>
+            </ul>
           </li>
           <li>
             <NavLink to="/Events">
