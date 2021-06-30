@@ -1,22 +1,19 @@
 const User = require("../../../models/user");
+const bcrypt = require("bcrypt");
 
-// const getUser = async (req, res) => {
-//   const user = await User.find();
-//   if (!user) {
-//     return res.status(500).json({
-//       message: "user doesn't exist",
-//       data: {},
-//     });
-//   }
-//   res.status(200).json({
-//     message: "Fetched successfully",
-//     data: user,
-//   });
-// };
 const addUser = async (req, res) => {
-  const { username } = req.body;
-  const { password } = req.body;
-  const { email } = req.body;
+  const { username, userId, password, email } = req.body;
+  //check if there is a user with the same username
+  const foundUserName = await User.findOne({ username: username });
+  if (foundUserName) {
+    return res.status(403).json({ error: "Username is already in use" });
+  }
+
+  // Check if there is a user with the same email
+  const foundUserEmail = await User.findOne({ email: email });
+  if (foundUserEmail) {
+    return res.status(403).json({ error: "Email is already in use" });
+  }
 
   const user = new User({
     username,
@@ -32,5 +29,4 @@ const addUser = async (req, res) => {
 
 module.exports = {
   addUser,
-  // getUser,
 };

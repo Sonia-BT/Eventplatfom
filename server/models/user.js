@@ -1,28 +1,32 @@
+const { string } = require("joi");
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
+const bcrypt = require("bcrypt");
 
-const userSchema = new Schema(
-  {
-    username: {
-      type: String,
-    },
-    email: {
-      type: String,
-    },
-    password: {
-      type: String,
-    },
+const userSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
   },
-  { timestamps: true }
-);
-
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  createdEvents: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Event",
+    },
+  ],
+});
+/***------------------------------------------Hash_The_Password-----------------------------------------------***/
 userSchema.pre("save", async function (next) {
   try {
-    // 	console.log('entered');
-    // 	if (this.method !== 'local') {
-    // 		next();
-    // 	}
-
     // Generate a salt
     const salt = await bcrypt.genSalt(10);
     // Generate a password hash (salt + hash)
@@ -37,6 +41,8 @@ userSchema.pre("save", async function (next) {
   }
 });
 
+/***------------------------------------------Validate_Password-----------------------------------------------***/
+
 userSchema.methods.isValidPassword = async function (newPassword) {
   try {
     return await bcrypt.compare(newPassword, this.password);
@@ -44,6 +50,7 @@ userSchema.methods.isValidPassword = async function (newPassword) {
     throw new Error(error);
   }
 };
+
 const user = mongoose.model("User", userSchema);
 
 module.exports = user;

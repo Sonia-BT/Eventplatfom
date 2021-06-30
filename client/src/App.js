@@ -1,7 +1,7 @@
 import "./App.css";
 import SignUp from "./components/Authentification/SignUp";
 import SignIn from "./components/Authentification/SignIn";
-import Events from "./components/Pages/Events";
+import Events from "./components/Events/Events";
 import Principal from "./components/Pages/Principal";
 import NavBar from "./components/NavigationBar/NavBar";
 import React from "react";

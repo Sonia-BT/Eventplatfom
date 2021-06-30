@@ -1,6 +1,37 @@
 import "./SignIn.css";
+import { useState } from "react";
+import axios from "axios";
 
 function SignIn() {
+  const [users, getUsers] = useState([""]);
+  const [input1, getInput1] = useState("");
+  const [input2, getInput2] = useState("");
+  const getData = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (input1 && input2) {
+        const { data } = await axios.post(`http://localhost:5000/user`, {
+          username: input1,
+          email: input1,
+          password: input2,
+        });
+        getUsers([
+          ...users,
+          {
+            username: data.data.username,
+            email: data.data.email,
+            password: data.data.password,
+          },
+        ]);
+        getInput1("");
+        getInput2("");
+      }
+      console.log(users);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="Auth_Body">
       <div className="BigContainer">

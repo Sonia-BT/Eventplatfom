@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const userRouter = require("./api/controllers/user/router");
+const eventRouter = require("./api/controllers/event/router");
 
 mongoose.connect(process.env.MONGODB, {
   useNewUrlParser: true,
@@ -27,5 +28,6 @@ app.use(cors());
 const PORT = process.env.PORT || 2000;
 
 app.use("/user", userRouter);
+app.use("/event", eventRouter);
 
 app.listen(PORT, () => console.log("Listening on http://localhost:" + PORT));
