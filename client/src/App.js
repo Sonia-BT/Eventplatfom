@@ -1,7 +1,7 @@
 import "./App.css";
 import SignUp from "./components/Authentification/SignUp";
 import SignIn from "./components/Authentification/SignIn";
-import Events from "./components/Events/Events";
+import EventsList from "./components/Pages/EventsList";
 import Principal from "./components/Pages/Principal";
 import NavBar from "./components/NavigationBar/NavBar";
 import React from "react";
@@ -25,7 +25,7 @@ function App() {
               <Route path="/Home" component={Principal} />
               <Route path="/Authentification/SignUp" component={SignUp} />
               <Route path="/Authentification/SignIn" component={SignIn} />
-              <Route path="/Events" component={Events} />
+              <Route path="/Events" component={EventsList} />
             </Switch>
           </main>
         </React.Fragment>
