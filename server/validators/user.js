@@ -1,6 +1,5 @@
 const { string } = require("joi");
 const joi = require("joi");
-
 module.exports = {
   postUser: {
     body: {

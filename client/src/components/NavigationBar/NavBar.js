@@ -12,11 +12,11 @@ function NavBar(props) {
         <ul>
           <li>
             <NavLink to="/Home">
-              Home <i class="fas fa-home"></i>
+              Home <i className="fas fa-home"></i>
             </NavLink>
           </li>
           <li>
-            Connect <i class="fas fa-user"></i>
+            Connect <i className="fas fa-user"></i>
             <ul className="Sub_Auth">
               <NavLink to="/Authentification/SignIn">
                 <li>Sign In</li>
@@ -28,12 +28,12 @@ function NavBar(props) {
           </li>
           <li>
             <NavLink to="/Events">
-              Events <i class="far fa-calendar-alt"></i>
+              Events <i className="far fa-calendar-alt"></i>
             </NavLink>
           </li>
           <li>
             <NavLink to="/ContactUs">
-              Contact Us <i class="fas fa-phone"></i>
+              Contact Us <i className="fas fa-phone"></i>
             </NavLink>
           </li>
         </ul>

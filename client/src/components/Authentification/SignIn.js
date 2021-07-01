@@ -1,37 +1,41 @@
 import "./SignIn.css";
-import { useState } from "react";
+import React from "react";
 import axios from "axios";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function SignIn() {
-  const [users, getUsers] = useState([""]);
-  const [input1, getInput1] = useState("");
-  const [input2, getInput2] = useState("");
-  const getData = async (e) => {
-    e.preventDefault();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
+  const history = useHistory();
+
+  const setData = async (e) => {
+    e.preventDefault();
     try {
-      if (input1 && input2) {
-        const { data } = await axios.post(`http://localhost:5000/user`, {
-          username: input1,
-          email: input1,
-          password: input2,
-        });
-        getUsers([
-          ...users,
-          {
-            username: data.data.username,
-            email: data.data.email,
-            password: data.data.password,
-          },
-        ]);
-        getInput1("");
-        getInput2("");
+      const { data } = await axios.get(`http://localhost:5000/user`);
+      console.log(data);
+      if (email && password) {
+        const foundUser = data.data.find(
+          (el) => el.email === email && el.password === password
+        );
+        if (foundUser) {
+          history.push("/Pages/Principal");
+        } else {
+          alert("Don't have an account? Create one!");
+        }
+      } else {
+        if (!email) {
+          alert("Oups you forgot your email adress!");
+        } else if (!password) {
+          alert("Oups you forgot your password!");
+        }
       }
-      console.log(users);
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <div className="Auth_Body">
       <div className="BigContainer">
@@ -45,7 +49,8 @@ function SignIn() {
               <h5 className="Title">UserName/email</h5>
               <input
                 type="text"
-                autofocus
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
                 placeholder=" Mark89/MarkSmith@gmail.com"
               ></input>
             </div>
@@ -54,17 +59,26 @@ function SignIn() {
               <h5 className="Title">Password</h5>
               <input
                 type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
                 className="InputError"
                 placeholder=" **********************"
               ></input>
             </div>
             <div className="Item">
-              <button type="submit">Submit</button>
+              <button
+                type="submit"
+                onSubmit={(e) => {
+                  setData(e);
+                }}
+              >
+                Submit
+              </button>
             </div>
             <div className="formText">
               <p>
-                <a href="#" className="formLink">
-                  Forgot Your Password?{" "}
+                <a className="formLink" href="./SignUp">
+                  Forgot Your Password?
                 </a>
               </p>
             </div>

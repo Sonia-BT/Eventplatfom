@@ -2,7 +2,7 @@ const User = require("../../../models/user");
 const bcrypt = require("bcrypt");
 
 const addUser = async (req, res) => {
-  const { username, userId, password, email } = req.body;
+  const { username, password, email } = req.body;
   //check if there is a user with the same username
   const foundUserName = await User.findOne({ username: username });
   if (foundUserName) {
@@ -17,8 +17,8 @@ const addUser = async (req, res) => {
 
   const user = new User({
     username,
-    password,
     email,
+    password,
   });
   await user.save();
   res.status(201).json({
