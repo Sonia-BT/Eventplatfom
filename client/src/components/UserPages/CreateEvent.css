@@ -1,0 +1,99 @@
+.CreateEvent {
+  display: flex;
+  /* border: 1px solid red; */
+  justify-content: center;
+  height: 80vh;
+}
+
+.bodyEvent {
+  display: flex;
+  width: 70%;
+  padding: 0.5%;
+  box-shadow: #00000040 0px 54px 55px, #0000001f 0px -12px 30px,
+    #0000001f 0px 4px 6px, #0000002b 0px 12px 13px, #00000017 0px -3px 5px;
+}
+
+.ImageForm {
+  width: 50%;
+  /* border: solid 1px cyan; */
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+.EventImage {
+  background: url("../../Images/EventBrite_ARt.materials.jpg");
+  width: 100%;
+  background-size: cover;
+}
+.CreateEventForm {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid chartreuse; */
+  width: 50%;
+  padding: 1%;
+}
+
+.CreateEventForm h1 {
+  /* border: 1px solid red; */
+  padding: 2% 2% 2% 0%;
+  /* margin-bottom: 1%; */
+}
+
+.CreateEventForm label {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.CreateEventForm .Input {
+  height: 30px;
+  margin-bottom: 2%;
+}
+
+.Selections {
+  display: flex;
+  /* border: 1px solid blue; */
+  height: 40px;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.Selections select {
+  height: 30px;
+  width: 32%;
+}
+
+.EventCreator {
+  display: flex;
+}
+
+.EventCreator label {
+  margin-right: 1%;
+}
+
+.EventDescriptionInput {
+  height: 120px;
+  margin-bottom: 2%;
+}
+
+.CreateEventForm button {
+  display: flex;
+  height: 50px;
+  width: 50%;
+  align-self: flex-end;
+  /* margin-top: 20%; */
+  justify-content: center;
+  align-items: center;
+}
+
+.CreateEventForm button .fas {
+  border: 1px solid red;
+}
+
+.CreateEventForm button h3 {
+  border: 1px solid red;
+  /* height: 50px;
+  width: 100%; */
+}
+
+.EventCreator label {
+  margin-top: 2%;
+}

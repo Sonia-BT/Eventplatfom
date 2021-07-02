@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 function SignIn() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [toSignIn, setTosignIn] = useState(false);
 
   const history = useHistory();
 
@@ -31,6 +32,9 @@ function SignIn() {
           alert("Oups you forgot your password!");
         }
       }
+      if (toSignIn === true) {
+        history.push("/Pages/CreateEvent");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +43,12 @@ function SignIn() {
   return (
     <div className="Auth_Body">
       <div className="BigContainer">
-        <form className="SignIn_SignUp">
+        <form
+          className="SignIn_SignUp"
+          onSubmit={(e) => {
+            setData(e);
+          }}
+        >
           <div className="SignInForm">
             <h3>Login</h3>
           </div>
@@ -68,8 +77,8 @@ function SignIn() {
             <div className="Item">
               <button
                 type="submit"
-                onSubmit={(e) => {
-                  setData(e);
+                onClick={() => {
+                  setTosignIn(true);
                 }}
               >
                 Submit

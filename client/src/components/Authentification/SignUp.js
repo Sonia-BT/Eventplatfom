@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 // import * as yup from "yup";
 
 function SignUp() {
-  const [user, setUser] = useState([""]);
+  const [user, setUser] = useState([]);
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
   const [input3, setInput3] = useState("");

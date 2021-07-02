@@ -4,6 +4,7 @@ import SignIn from "./components/Authentification/SignIn";
 import EventsList from "./components/Pages/EventsList";
 import Principal from "./components/Pages/Principal";
 import NavBar from "./components/NavigationBar/NavBar";
+import CreateEvent from "./components/UserPages/CreateEvent";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -28,6 +29,7 @@ function App() {
               <Route path="/Events" component={EventsList} />
             </Switch>
           </main>
+          <CreateEvent />
         </React.Fragment>
       </Router>
     </div>

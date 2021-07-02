@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./Events.css";
+import "./EventsList.css";
 
-function Events() {
+function EventsList() {
   const [click, setClick] = useState(false);
   function handelclick() {
     setClick(!click);
@@ -113,4 +113,4 @@ function Events() {
   );
 }
 
-export default Events;
+export default EventsList;
