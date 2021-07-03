@@ -5,7 +5,9 @@ function CreateEvent() {
     <div className="CreateEvent">
       <div className="bodyEvent">
         <form className="ImageForm">
-          <input className="EventImage" />
+          <div className="EventImage">
+            <input type="file" className="AddImage" />
+          </div>
         </form>
         <form className="CreateEventForm">
           <h1>Create Your Event</h1>
@@ -62,7 +64,12 @@ function CreateEvent() {
           <label>
             <h4>Event Date</h4>
           </label>
-          <input className="Input" />
+          <input
+            className="Input"
+            type="date"
+            min={new Date().toISOString().slice(0, -14)}
+            max="2023-12-31"
+          />
           <button>
             <h3>
               <i class="fas fa-plus"></i>

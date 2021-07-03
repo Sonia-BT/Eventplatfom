@@ -9,7 +9,14 @@ function Principal() {
     //   onchange={(e) => setInputValue(e.target.value)}
     //   value={inputValue}
     // />
-    <h1>Hello World</h1>
+    <div>
+      <h1>Hello World</h1>
+      <body>
+        <footer className="Contact">
+          <i class="far fa-copyright"></i>
+        </footer>
+      </body>
+    </div>
   );
 }
 
