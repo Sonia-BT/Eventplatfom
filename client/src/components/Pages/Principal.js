@@ -10,12 +10,10 @@ function Principal() {
     //   value={inputValue}
     // />
     <div>
-      <h1>Hello World</h1>
-      <body>
-        <footer className="Contact">
-          <i class="far fa-copyright"></i>
-        </footer>
-      </body>
+      {/* <body className="Principalbody"></body> */}
+      {/* <footer>
+        <i class="far fa-copyright"></i>
+      </footer> */}
     </div>
   );
 }

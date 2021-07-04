@@ -29,14 +29,20 @@
   padding: 5px 10px;
 }
 
+.NavigationBar li:hover,
+.NavigationBar li:active,
+.NavigationBar li.active {
+  color: #fff;
+}
+
 .NavigationBar a {
   text-decoration: none;
   color: #000;
   /* align-self: center; */
 }
-.NavigationBar a:hover,
-.NavigationBar a:active,
-.NavigationBar a.active {
+.NavigationBar li a:hover,
+.NavigationBar li a:active,
+.NavigationBar li a.active {
   color: #fff;
 }
 
