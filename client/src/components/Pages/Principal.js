@@ -1,20 +1,16 @@
 import "./Principal.css";
-// import { useState } from "react";
+import ContactUs from "./ContactUs";
 
 function Principal() {
-  // const [inputValue, setInputValue] = useState("");
-
   return (
-    // <NavBar
-    //   onchange={(e) => setInputValue(e.target.value)}
-    //   value={inputValue}
-    // />
-    <div>
-      {/* <body className="Principalbody"></body> */}
-      {/* <footer>
-        <i class="far fa-copyright"></i>
-      </footer> */}
-    </div>
+    <body>
+      <main>
+        <h1>Hello World !</h1>
+      </main>
+      <footer>
+        <ContactUs />
+      </footer>
+    </body>
   );
 }
 
