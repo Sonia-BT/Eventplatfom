@@ -25,7 +25,7 @@ const eventSchema = new Schema({
   eventDate: {
     type: Date,
     required: true,
-    min: "2020-06-28",
+    min: "2020-01-01",
     max: "2024-12-31",
   },
   Online: {
