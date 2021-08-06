@@ -1,17 +1,17 @@
 .EventPage {
-  height: 100vh;
+  height: 92vh;
   margin-top: 2px;
   display: flex;
 }
 
 .EventFilter {
   width: 25%;
-  height: 91vh;
+  height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   /* justify-content: space-evenly; */
-  background: #ecebeb;
+  background: #dddddd;
 }
 /*-----------------------------SearchBar Part--------------------------------*/
 .searchBar {
@@ -26,6 +26,7 @@
 
 .searchBar h1 {
   margin-left: 1%;
+  color: #3c8dad;
 }
 
 .SearchForm {
@@ -53,11 +54,11 @@
   outline: none;
   border: none;
   cursor: pointer;
-  background: #fab667;
+  background: #f5a962;
 }
 
 .SearchButton:hover {
-  background: #000;
+  background: #125d98;
 }
 
 .SearchButton:active {
@@ -65,7 +66,7 @@
 }
 
 .SearchButton .fas {
-  color: #000;
+  color: #fff;
   width: 100%;
 }
 
@@ -92,6 +93,7 @@
 }
 .formFilter h1 {
   margin-left: 1%;
+  color: #3c8dad;
 }
 
 .Filters {
@@ -117,21 +119,21 @@
 }
 
 .OnlineEvent button {
-  color: #000;
-  background: #fab667;
+  color: #fff;
+  background: #f5a962;
   width: 23%;
   height: 44px;
   font-size: 600;
   font-weight: bold;
   border-radius: 5px;
-  border: #fab667;
+  border: #f5a962;
   cursor: pointer;
   /* margin-left: 3%; */
 }
 
 .OnlineEvent button:hover {
   color: #fab667;
-  background: #000;
+  background: #125d98;
 }
 
 .OnlineEvent button:active {
@@ -156,6 +158,7 @@
 h2 {
   margin-left: 1%;
   margin-bottom: 2%;
+  color: #3c8dad;
 }
 .Date {
   height: 5vh;

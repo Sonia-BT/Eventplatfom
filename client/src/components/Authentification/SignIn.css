@@ -3,11 +3,12 @@
   align-self: center;
   height: 45px;
   width: 93%;
-  background-color: #fdc763;
+  background-color: #f5a962;
   border-radius: 8px;
   justify-content: center;
 }
 
 .SignInForm h3 {
   align-self: center;
+  color: #fff;
 }

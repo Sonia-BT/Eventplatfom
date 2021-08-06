@@ -2,13 +2,16 @@
   left: 0;
   top: 0;
   height: 3.5rem;
-  background: #fdc763;
+  background: #125d98;
   padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
+.NavigationLogo a {
+  text-decoration: none;
+  color: #f5a962;
+}
 .NavigationLogo h1 {
   margin: 0;
   font-size: 1.5rem;
@@ -17,8 +20,9 @@
 .NavigationBar {
   margin-left: 1.5rem;
 }
-.NavigationBar ul {
-  margin-right: 0.8rem;
+
+.NavigationBar {
+  margin-bottom: 0%;
 }
 
 .NavigationBar li {
@@ -27,28 +31,29 @@
   display: inline-block;
   list-style-type: none;
   padding: 5px 10px;
+  color: #fff;
 }
 
 .NavigationBar li:hover,
 .NavigationBar li:active,
 .NavigationBar li.active {
-  color: #fff;
+  color: #f5a962;
 }
 
 .NavigationBar a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
   /* align-self: center; */
 }
 .NavigationBar li a:hover,
 .NavigationBar li a:active,
 .NavigationBar li a.active {
-  color: #fff;
+  color: #f5a962;
 }
 
 ul .Sub_Auth {
   position: absolute;
-  background: #fdc763;
+  background: #125d98;
   color: #fff;
   list-style-type: none;
   padding-left: 0px;
@@ -63,10 +68,11 @@ ul .Sub_Auth li {
   padding-top: 5px;
   padding-bottom: 5px;
   margin-top: 5px;
+  color: #fff;
 }
 
 ul .Sub_Auth li:hover {
-  color: #000;
+  color: #f5a962;
 }
 
 .NavigationBar li:hover .Sub_Auth {

@@ -4,25 +4,27 @@ import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
-    <body>
+    <div>
       <header className="MainNavigation">
         <div className="NavigationLogo">
-          <h1>EventPlatform</h1>
+          <a href="/">
+            <h1>DIREvent</h1>
+          </a>
         </div>
         <nav className="NavigationBar">
           <ul>
             <li>
-              <NavLink to="/Home" href="#">
+              <NavLink to="/Home" href="/">
                 Home <i className="fas fa-home"></i>
               </NavLink>
             </li>
             <li>
               Connect <i className="fas fa-user"></i>
               <ul className="Sub_Auth">
-                <NavLink to="/Authentification/SignIn">
+                <NavLink to="/SignIn">
                   <li>Sign In</li>
                 </NavLink>
-                <NavLink to="/Authentification/SignUp">
+                <NavLink to="/SignUp">
                   <li>Sign Up</li>
                 </NavLink>
               </ul>
@@ -33,14 +35,14 @@ function NavBar() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/ContactUs" href="ContactUs">
-                Contact Us <i className="fas fa-phone"></i>
+              <NavLink to="/CreateEvent">
+                Event <i class="fas fa-plus"></i>
               </NavLink>
             </li>
           </ul>
         </nav>
       </header>
-    </body>
+    </div>
   );
 }
 

@@ -1,5 +1,66 @@
+.contact_section {
+  display: flex;
+  justify-content: space-between;
+  background-color: #aaa8a8;
+  height: 8.5vh;
+  align-items: center;
+}
+.copyright {
+  display: flex;
+  align-items: center;
+  /* border: 2px solid red; */
+  color: white;
+  width: 25%;
+}
+
+.copyright p {
+  margin-bottom: 0rem;
+}
+
+.copyright i {
+  margin-right: 2%;
+  margin-left: 2%;
+}
 .Icons {
   display: flex;
-  justify-items: center;
-  justify-content: space-evenly;
+  /* flex-direction: column; */
+  /* background-color: #c7bbbb; */
+  justify-content: space-between;
+  width: 30%;
+  /* border: 2px solid red; */
+  /* height: 12vh; */
+  margin-right: 5px;
+  padding: 0px;
+  align-items: center;
+}
+
+.Link {
+  height: 7vh;
+}
+
+.Link a {
+  text-decoration: none;
+}
+
+.Links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+}
+
+.Links p {
+  margin-right: 4%;
+  cursor: pointer;
+  list-style: none;
+  color: #125d98;
+}
+
+.fab {
+  color: #125d98;
+  cursor: pointer;
+}
+.fa-5x {
+  font-size: 2rem;
 }
