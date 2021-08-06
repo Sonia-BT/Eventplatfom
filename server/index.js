@@ -27,7 +27,11 @@ app.use(cors());
 
 const PORT = process.env.PORT || 2000;
 
+//routes
 app.use("/user", userRouter);
 app.use("/event", eventRouter);
+// app.get("/", (res, req) => res.render("Principal"));
+// app.get("/Authentification/SignUp", (res, req) => res.render("SignIn"));
+// app.use(userRouter);
 
 app.listen(PORT, () => console.log("Listening on http://localhost:" + PORT));
