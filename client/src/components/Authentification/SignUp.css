@@ -15,15 +15,19 @@
   border-radius: 8px;
   box-shadow: 0 0 50px 0 rgb(37, 37, 37);
 }
+
 .SignIn_SignUp {
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 350px;
-  max-width: 350px;
+}
+
+.Up {
+  width: 400px;
+  max-width: 550px;
   margin: 1rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .HiddenSignInForm {
@@ -34,7 +38,7 @@
   display: flex;
   align-self: center;
   height: 45px;
-  width: 80%;
+  width: 74%;
   background-color: #f5a962;
   border-radius: 8px;
   justify-content: center;
@@ -56,9 +60,8 @@
   align-self: center;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 60px;
+  height: 75px;
   width: 100%;
-  margin-bottom: 3px;
 }
 
 .Item Input {
@@ -70,7 +73,7 @@
   border-radius: 3px;
   outline: none;
   background: #eeeeee;
-  transition: background 0.2s, border-color 0.2s;
+  /* transition: background 0.2s, border-color 0.2s; */
 }
 
 .Item Input:focus {
@@ -115,6 +118,7 @@
 
 .formText {
   align-self: center;
+  height: 25px;
 }
 
 .formLink {
@@ -139,4 +143,12 @@
 
 .messageSucces {
   color: green;
+}
+
+.input-feedback {
+  color: red;
+  height: 10px;
+  /* border: 1px solid; */
+  font-size: 13px;
+  margin-bottom: 2%;
 }

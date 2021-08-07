@@ -1,8 +1,13 @@
+.In {
+  margin: 1rem;
+  padding: 2rem;
+}
+
 .SignInForm {
   display: flex;
   align-self: center;
   height: 45px;
-  width: 93%;
+  width: 100%;
   background-color: #f5a962;
   border-radius: 8px;
   justify-content: center;

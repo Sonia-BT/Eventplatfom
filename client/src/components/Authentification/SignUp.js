@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Formik } from "formik";
-import * as EmailValidator from "email-validator";
+// import * as EmailValidator from "email-validator";
 import * as yup from "yup";
 
 function SignUp() {
@@ -39,7 +39,8 @@ function SignUp() {
         setInput3("");
         // setInput4("");
       }
-      console.log(user);
+      // console.log(user);
+      console.log(toSignIn);
       if (toSignIn === true) {
         history.push("/Authentification/SignIn");
       }
@@ -61,14 +62,14 @@ function SignUp() {
       validationSchema={yup.object().shape({
         username: yup
           .string()
-          .required("Required")
-          .min(4, "username too short - Should be 4 characters minimum "),
-        email: yup.string().email().required("Required"),
+          .required("UserName is Required")
+          .min(4, "username too short-Should be 4 characters min "),
+        email: yup.string().email().required("Email is Required"),
         password: yup
           .string()
-          .required("Required")
+          .required("Password is Required")
           .min(6, "Password is too short -Should be 6 characters minimum")
-          .matches(/(?=.*[0-9])/, "Password must containe a number"),
+          .matches(/(?=.*[0-9])/, "Password must contain a number"),
       })}
     >
       {(props) => {
@@ -81,11 +82,11 @@ function SignUp() {
           handleBlur,
           handleSubmit,
         } = props;
-        console.log(touched);
+        // console.log(touched);
         return (
           <div className="Auth_Body">
             <div className="BigContainer">
-              <form className="SignIn_SignUp" onSubmit={handleSubmit}>
+              <form className="SignIn_SignUp Up" onSubmit={handleSubmit}>
                 <div className="SignUpForm ">
                   <h3>Create account</h3>
                 </div>
@@ -101,7 +102,11 @@ function SignUp() {
                       onBlur={handleBlur}
                       value={values.username}
                       placeholder=" Mark89"
-                    ></input>
+                      className={errors.username && touched.username && "error"}
+                    />
+                    {errors.username && touched.username && (
+                      <div className="input-feedback">{errors.username}</div>
+                    )}
                   </div>
                   <div className="Item">
                     <h5 className="Title">Address Email</h5>
@@ -113,11 +118,11 @@ function SignUp() {
                       onBlur={handleBlur}
                       value={values.email}
                       placeholder=" MarkSmith@gmail.com"
-                      // className={errors.email && touched.email && "error"}
+                      className={errors.email && touched.email && "error"}
                     />
-                    {/* {errors.email && touched.email && (
-                <div className="input-feedback">{errors.email}</div>
-              )} */}
+                    {errors.email && touched.email && (
+                      <div className="input-feedback">{errors.email}</div>
+                    )}
                   </div>
                   <div className="inputMessageError"></div>
                   <div className="Item">
@@ -131,7 +136,11 @@ function SignUp() {
                       onBlur={handleBlur}
                       value={values.password}
                       placeholder=" ******"
+                      className={errors.password && touched.password && "error"}
                     />
+                    {errors.password && touched.password && (
+                      <div className="input-feedback">{errors.password}</div>
+                    )}
                   </div>
                   <div className="Item">
                     <h5 className="Title">Confirm Your Password</h5>
@@ -147,10 +156,10 @@ function SignUp() {
                   <div className="Item">
                     <button
                       type="submit"
-                      onClick={() => {
-                        setTosignIn(true);
-                      }}
-                      // disabled={isSubmitting}
+                      // onClick={() => {
+                      //   setTosignIn(true);
+                      // }}
+                      disabled={isSubmitting}
                     >
                       Submit
                     </button>

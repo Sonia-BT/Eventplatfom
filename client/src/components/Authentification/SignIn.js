@@ -40,7 +40,7 @@ function SignIn() {
     <div className="Auth_Body">
       <div className="BigContainer">
         <form
-          className="SignIn_SignUp"
+          className="SignIn_SignUp In"
           onSubmit={(e) => {
             setData(e);
           }}
@@ -83,7 +83,7 @@ function SignIn() {
             <div className="formText">
               <p>
                 <a className="formLink" href="./SignUp">
-                  Don't have an account? Create account?
+                  Don't have an account? Create an account?
                 </a>
               </p>
             </div>
