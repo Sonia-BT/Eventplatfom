@@ -36,7 +36,7 @@ function NavBar() {
             </li>
             <li>
               <NavLink to="/CreateEvent">
-                Event <i class="fas fa-plus"></i>
+                Event <i className="fas fa-plus"></i>
               </NavLink>
             </li>
           </ul>

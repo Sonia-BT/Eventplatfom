@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <Router>
         <React.Fragment>
-          <body>
+          <div className="body">
             <header>
               <NavBar />
             </header>
@@ -39,7 +39,7 @@ function App() {
             <footer>
               <ContactUs />
             </footer>
-          </body>
+          </div>
           {/* <CreateEvent /> */}
         </React.Fragment>
       </Router>

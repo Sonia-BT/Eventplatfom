@@ -50,7 +50,11 @@ function SignUp() {
   };
   return (
     <Formik
-      initialValues={{ email: "", password: "", username: "hello" }}
+      initialValues={{
+        email: "",
+        password: "",
+        username: "",
+      }}
       onSubmit={(values, { setSubmitting }) => {
         console.log("Submitting");
       }}
@@ -58,12 +62,12 @@ function SignUp() {
         username: yup
           .string()
           .required("Required")
-          .min(4, "username too short - Should be 3 characters minimum "),
+          .min(4, "username too short - Should be 4 characters minimum "),
         email: yup.string().email().required("Required"),
         password: yup
           .string()
           .required("Required")
-          .min(6, "Password is too short -Should be 8 characters minimum")
+          .min(6, "Password is too short -Should be 6 characters minimum")
           .matches(/(?=.*[0-9])/, "Password must containe a number"),
       })}
     >
@@ -74,7 +78,7 @@ function SignUp() {
           errors,
           isSubmitting,
           handleChange,
-          handelBlur,
+          handleBlur,
           handleSubmit,
         } = props;
         console.log(touched);
@@ -94,6 +98,7 @@ function SignUp() {
                       id="username"
                       name="username"
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       value={values.username}
                       placeholder=" Mark89"
                     ></input>
@@ -102,10 +107,11 @@ function SignUp() {
                     <h5 className="Title">Address Email</h5>
                     <input
                       type="email"
-                      onChange={(e) => {
-                        setInput2(e.target.value);
-                      }}
-                      value={input2}
+                      id="email"
+                      name="email"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.email}
                       placeholder=" MarkSmith@gmail.com"
                       // className={errors.email && touched.email && "error"}
                     />
@@ -118,11 +124,13 @@ function SignUp() {
                     <h5 className="Title">Create Password</h5>
                     <input
                       type="password"
+                      id="password"
+                      name="password"
                       className="InputError"
-                      onChange={(e) => {
-                        setInput3(e.target.value);
-                      }}
-                      value={input3}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.password}
+                      placeholder=" ******"
                     />
                   </div>
                   <div className="Item">
@@ -133,7 +141,7 @@ function SignUp() {
                       //   setInput4(e.target.value);
                       // }}
                       // value={input4}
-                      placeholder=" **********************"
+                      placeholder=" ******"
                     ></input>
                   </div>
                   <div className="Item">

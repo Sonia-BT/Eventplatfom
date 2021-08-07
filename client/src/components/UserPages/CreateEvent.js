@@ -72,7 +72,7 @@ function CreateEvent() {
           />
           <button>
             <h3>
-              <i class="fas fa-plus"></i>
+              <i className="fas fa-plus"></i>
               Event
             </h3>
           </button>

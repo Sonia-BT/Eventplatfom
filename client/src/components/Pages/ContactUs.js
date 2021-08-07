@@ -5,7 +5,7 @@ function ContactUs() {
     <div>
       <section id="ContactUs" className="contact_section">
         <div className="copyright">
-          <i class="far fa-copyright"></i>
+          <i className="far fa-copyright"></i>
           <p>copyright 2021 SB. All right reserved</p>
         </div>
         <div className="Icons">
