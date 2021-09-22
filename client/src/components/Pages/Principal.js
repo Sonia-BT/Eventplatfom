@@ -1,7 +1,7 @@
 import "./Principal.css";
 import img1 from "../../Images/Exposition_Art.jpg";
 import img2 from "../../Images/cours_culinaire.jpg";
-import img3 from "../../Images/Orchestre_musique.jpg";
+import img3 from "../../Images/Login_Pic - Copie.jpg";
 import img4 from "../../Images/mecanique.jpeg";
 import img6 from "../../Images/compagne_vaccination.jpg";
 import img7 from "../../Images/randonnée.jpg";

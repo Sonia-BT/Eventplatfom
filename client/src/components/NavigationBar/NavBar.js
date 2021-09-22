@@ -1,6 +1,7 @@
 import "./NavBar.css";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Logo from "../../Images/LOGO-DIR EVENT-SANS FLEURES-AVEC FOND 2.png";
 
 function NavBar() {
   return (
@@ -8,7 +9,11 @@ function NavBar() {
       <header className="MainNavigation">
         <div className="NavigationLogo">
           <a href="/">
-            <h1>DIREvent</h1>
+            <img className="Logo" src={Logo} alt="DirEvent_Logo" />
+            {/* <div className="Title_Logo"> */}
+            {/* <h3 className="Title1">DIR</h3>
+              <h3 className="Title2">Event</h3> */}
+            {/* </div> */}
           </a>
         </div>
         <nav className="NavigationBar">

@@ -1,21 +1,60 @@
 .MainNavigation {
   left: 0;
   top: 0;
-  height: 3.5rem;
+  height: 5rem;
   background: #125d98;
   padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 18px;
+}
+
+/* .NavigationLogo {
+  width: 40%;
+} */
+/* .NavigationLogo {
+  display: flex;
+  flex-direction: row;
+} */
+.Logo {
+  display: flex;
+  align-self: center;
+  height: 79px;
+  width: 20%;
+  border-radius: 15%;
+}
+/* .Title_Logo {
+  display: flex;
+  margin: 0;
+  font-size: 2rem;
+  align-self: center;
+} */
+
+/* .Title1 {
+  display: flex;
+  align-self: center;
+  font-size: 2.1rem;
+  font-weight: 600;
+}
+
+.Title2 {
+  font-family: "MonteCarlo", cursive;
+  font-size: 2.5rem;
+  font-weight: 600;
+} */
+.NavigationLogo {
+  width: 30%;
 }
 .NavigationLogo a {
+  /* display: flex; */
   text-decoration: none;
   color: #f5a962;
 }
-.NavigationLogo h1 {
+/* .NavigationLogo h1 {
   margin: 0;
   font-size: 1.5rem;
-}
+} */
 
 .NavigationBar {
   margin-left: 1.5rem;
