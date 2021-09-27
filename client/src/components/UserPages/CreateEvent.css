@@ -2,7 +2,7 @@
   display: flex;
   /* border: 1px solid red; */
   justify-content: center;
-  height: 75.5vh;
+  height: 73vh;
   margin-bottom: 2%;
   margin-top: 2%;
 }
@@ -66,7 +66,7 @@
 .Selections {
   display: flex;
   /* border: 1px solid blue; */
-  height: 40px;
+  height: 30px;
   justify-content: center;
   justify-content: space-evenly;
 }
@@ -75,17 +75,16 @@
   height: 30px;
   width: 32%;
 }
-
+/* 
 .EventCreator {
   display: flex;
 }
 
 .EventCreator label {
   margin-right: 1%;
-}
+}*/
 
 .EventDescriptionInput {
-  height: 120px;
   margin-bottom: 2%;
 }
 

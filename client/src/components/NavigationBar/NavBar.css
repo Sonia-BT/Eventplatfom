@@ -1,7 +1,7 @@
 .MainNavigation {
   left: 0;
   top: 0;
-  height: 5rem;
+  height: 4.5rem;
   background: #125d98;
   padding: 0 1rem;
   display: flex;
@@ -20,8 +20,8 @@
 .Logo {
   display: flex;
   align-self: center;
-  height: 79px;
-  width: 20%;
+  height: 70px;
+  width: 18%;
   border-radius: 15%;
 }
 /* .Title_Logo {

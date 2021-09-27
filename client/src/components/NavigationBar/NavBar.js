@@ -23,7 +23,7 @@ function NavBar() {
                 Home <i className="fas fa-home"></i>
               </NavLink>
             </li>
-            <li>
+            <li style={{ zIndex: 99 }}>
               Connect <i className="fas fa-user"></i>
               <ul className="Sub_Auth">
                 <NavLink to="/SignIn">

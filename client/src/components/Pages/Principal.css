@@ -5,9 +5,14 @@
   justify-content: center;
   align-items: center;
   margin-top: 1%;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
 }
-
+/*Pour enlever l'espace de bootstrap sous le footer !!!*/
+p {
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+/*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
 .carousel-control-prev {
   width: 10%;
 }
