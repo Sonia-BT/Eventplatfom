@@ -12,7 +12,7 @@ const eventSchema = new Schema({
   },
   eventImage: {
     type: String,
-    required: true,
+    required: false,
   },
   category: {
     type: String,
@@ -25,7 +25,7 @@ const eventSchema = new Schema({
   eventDate: {
     type: Date,
     required: true,
-    min: "2020-01-01",
+    min: Date.now,
     max: "2024-12-31",
   },
   Online: {
@@ -40,6 +40,7 @@ const eventSchema = new Schema({
   Creator: {
     type: Schema.Types.ObjectId,
     ref: "User",
+    required: false,
   },
 });
 
