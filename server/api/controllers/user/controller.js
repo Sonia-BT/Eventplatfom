@@ -75,9 +75,9 @@ const login_post = async (req, res) => {
         });
       }
     }
-    const isMatch = await user.isValidPassword(password);
+    const isMatch = await User.isValidPassword(password);
     if (!isMatch) throw createError.Unauthorized("Username/password not valid");
-    const token = jwt.sign({ email: user.email }, process.env.PRIVATE_KEY);
+    const token = jwt.sign({ email: User.email }, process.env.PRIVATE_KEY);
     if (!token) {
       return res.status(500).json({
         message: "Server error",

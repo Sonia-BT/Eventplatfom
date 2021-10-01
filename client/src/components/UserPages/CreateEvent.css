@@ -9,7 +9,7 @@
 
 .bodyEvent {
   display: flex;
-  width: 70%;
+  width: 65%;
   padding: 0.5%;
   box-shadow: #00000040 0px 54px 55px, #0000001f 0px -12px 30px,
     #0000001f 0px 4px 6px, #0000002b 0px 12px 13px, #00000017 0px -3px 5px;
@@ -27,7 +27,7 @@
   background: url("../../Images/camera1.jpg");
   width: 100%;
   background-size: cover;
-  border: 2px black solid;
+  border: 2px #1d1c1c solid;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -96,9 +96,11 @@
   margin-top: 2%;
   justify-content: center;
   align-items: center;
-  border: none;
   cursor: pointer;
+  outline: none;
   background-color: #f5a962;
+  border-color: #f5a962;
+  color: #1d1c1c;
 }
 
 .CreateEventForm button .fas {
@@ -106,9 +108,20 @@
   margin-right: 5px;
 }
 
+.CreateEventForm button:hover {
+  background-color: #125d98;
+  border-color: #286ca0;
+  color: #f5a962;
+}
+
+.CreateEventForm button:active {
+  transform: scale(0.98);
+}
+
 .CreateEventForm button h3 {
-  /* border: 1px solid red; */
+  border: 1px solid red hidden;
   font-size: 25px;
+  margin-top: 4px;
 }
 
 .EventCreator label {

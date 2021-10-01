@@ -3,7 +3,7 @@ import SignUp from "./components/Authentification/SignUp";
 import SignIn from "./components/Authentification/SignIn";
 import EventsList from "./components/Pages/EventsList";
 import Principal from "./components/Pages/Principal";
-import EventDetails from "./components/Pages/EventDetail";
+import EventDetail from "./components/Pages/EventDetail";
 import NavBar from "./components/NavigationBar/NavBar";
 import ContactUs from "./components/Pages/ContactUs";
 import CreateEvent from "./components/UserPages/CreateEvent";
@@ -31,16 +31,15 @@ function App() {
                 <Route path="/Home" component={Principal} />
                 <Route path="/SignUp" component={SignUp} />
                 <Route path="/SignIn" component={SignIn} />
-                <Route path="/Events" component={EventsList} />
-                <Route path="/EventDetails" component={EventDetails} />
                 <Route path="/CreateEvent" component={CreateEvent} />
+                <Route exact path="/Events" component={EventsList} />
+                <Route path="/:Eventname" component={EventDetail} />
               </Switch>
             </main>
             <footer>
               <ContactUs />
             </footer>
           </div>
-          {/* <CreateEvent /> */}
         </React.Fragment>
       </Router>
     </div>

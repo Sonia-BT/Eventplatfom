@@ -1,23 +1,63 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 import "./EventsList.css";
 
 function EventsList() {
+  const [events, setEvents] = useState([]);
+  const [searchEvent, setsearchEvent] = useState("");
+  const [category, setCategory] = useState("Toutes les Catégories");
+  const [format, setFormat] = useState("Tout les Formats");
   const [click, setClick] = useState(false);
+  const history = useHistory();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [eventsPerPage] = useState(8);
+
+  const getData = async () => {
+    try {
+      const { data } = await axios.get(`http://localhost:5000/event`);
+      setEvents(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  events && console.log(events);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   function handelclick() {
     setClick(!click);
   }
 
+  //Get current events (For limited the number of events in one page)
+  const indexOfLastEvent = currentPage * eventsPerPage;
+  const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
+
+  //Pagination
+  const pageNumbers = [];
+  function pagination(pageNumbers, eventsPerPage) {
+    for (let i = 1; i <= Math.ceil(events.data.length / eventsPerPage); i++) {
+      pageNumbers.push(i);
+    }
+  }
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="EventPage">
+      {/* the Filter Bar */}
       <div className="EventFilter">
         <div className="searchBar">
           <h1>Search Bar</h1>
-          <form /*onSubmit={(e) => e.preventDefault()}*/ className="SearchForm">
+          <form className="SearchForm" onSubmit={(e) => e.preventDefault()}>
             <input
               className="SearchInput"
-              // onChange={props.onchange}
-              // value={props.value}
               placeholder=" Looking for an Event ?"
+              onChange={(e) => setsearchEvent(e.target.value)}
+              value={searchEvent}
             />
             <button className="SearchButton">
               <i class="fas fa-search"></i>
@@ -39,9 +79,9 @@ function EventsList() {
             <h2>Catégories</h2>
             <select
               name="dropdown"
-              // onChange={(e) => {
-              //   setregionn(e.target.value);
-              // }}
+              onChange={(e) => {
+                setCategory(e.target.value);
+              }}
               className="Categories"
             >
               <option value="Toutes les Catégories">
@@ -59,8 +99,14 @@ function EventsList() {
               <option value="Gastronomie">Gastronomie</option>
             </select>
             <h2>Format</h2>
-            <select name="dropdown" className="Format">
-              <option value="Format">Tout les Formats</option>
+            <select
+              name="dropdown"
+              className="Format"
+              onChange={(e) => {
+                setFormat(e.target.value);
+              }}
+            >
+              <option value="Tout les Formats">Tout les Formats</option>
               <option value="Cours">Cours</option>
               <option value="Conférences">Conférences</option>
               <option value="Festival">Festival</option>
@@ -106,8 +152,86 @@ function EventsList() {
           </div>
         </form>
       </div>
-      <div className="EventList">
-        <h1>The list Of the Events</h1>
+      {/* Create the List of Events */}
+      <div className="GlobalEvents">
+        <div className="EventList">
+          {events.data &&
+            events.data
+              .slice(indexOfFirstEvent, indexOfLastEvent)
+              .filter(
+                (el) =>
+                  el.eventName
+                    .toUpperCase()
+                    .includes(searchEvent.toUpperCase()) ||
+                  el.format.toUpperCase().includes(searchEvent.toUpperCase()) ||
+                  el.category.toUpperCase().includes(searchEvent.toUpperCase())
+              )
+              .filter((el) => {
+                if (format == "Tout les Formats") return true;
+                return el.format == format;
+              })
+              .filter((el) => {
+                if (category == "Toutes les Catégories") return true;
+                return el.category == category;
+              })
+              .map((el) => {
+                return (
+                  <div className="EventCard">
+                    <img
+                      onClick={() => history.push(`/${el.eventName}`)}
+                      className="ImageCard"
+                      src={el.eventImage}
+                      alt="ImageEvent"
+                    ></img>
+                    <div className="InformationsCard">
+                      <div
+                        className="TitleCard"
+                        onClick={() => history.push(`/${el.eventName}`)}
+                      >
+                        {el.eventName}
+                      </div>
+                      <div
+                        className="timeCard"
+                        onClick={() => history.push(`/${el.eventName}`)}
+                      >
+                        {el.eventDate}
+                      </div>
+                      <div className="CreatorCard">
+                        <div
+                          className="User"
+                          onClick={() => history.push(`/${el.eventName}`)}
+                        >
+                          User
+                        </div>
+                        <div className="Fav">
+                          {/* <i className="fas fa-heart"></i>  */}
+                          <i className="far fa-bookmark"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+        </div>
+        {/* PAGINATION */}
+        {/* <div class="pagination">
+          <a href="#">&laquo; Previous</a>
+          <a href="#" class="active">
+            1
+          </a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">Next &raquo;</a>
+        </div> */}
+
+        {pagination}
+        {pageNumbers.map((number) => (
+          <div className="Pagination">
+            <a onClick={() => paginate(number)} href="!#">
+              {number}
+            </a>
+          </div>
+        ))}
       </div>
     </div>
   );

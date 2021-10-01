@@ -34,7 +34,12 @@ function CreateEvent() {
         setEvents([
           ...events,
           {
-            eventTitle: data.data.eventTitle,
+            eventName: data.data.eventTitle,
+            eventDescription: data.data.eventDescrip,
+            category: data.data.category,
+            format: data.data.format,
+            Online: data.data.online,
+            eventDate: data.data.eventDate,
           },
         ]);
         SetEventTitle("");
@@ -66,7 +71,7 @@ function CreateEvent() {
           <label>
             <h4>Event Title</h4>
           </label>
-          <input name="eventName" className="Input" />
+          <input name="eventName" className="Input Title" />
           <label>
             <h4>Event Description</h4>
           </label>
@@ -107,8 +112,8 @@ function CreateEvent() {
             </select>
             <select name="Online">
               <option value="EventOnLine">Event Online</option>
-              <option value="true">Oui</option>
-              <option value="false">Non</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </div>
           {/* <div className="EventCreator">
@@ -124,11 +129,11 @@ function CreateEvent() {
           <input
             name="eventDate"
             className="Input"
-            type="date"
+            type="datetime-local"
             min={new Date().toISOString().slice(0, -14)}
-            max="2023-12-31"
+            max="2022-12-31T00:00"
           />
-          <button>
+          <button type="submit">
             <h3>
               <i className="fas fa-plus"></i>
               Event

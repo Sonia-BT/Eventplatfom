@@ -1,4 +1,127 @@
-.h1 {
-  color: red;
-  font-weight: bold;
+.DetailPage {
+  display: flex;
+}
+
+.BackButton {
+  width: 10%;
+  display: flex;
+  height: 50px;
+  border: 1px solid red hidden;
+  justify-content: center;
+  align-self: auto;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.BackButton button {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  background-color: #d6d2d2;
+  border-color: #d3cfcf;
+  color: #1d1c1c;
+  box-shadow: #00000040 0px 54px 55px, #0000001f 0px -12px 30px,
+    #0000001f 0px 4px 6px, #0000002b 0px 12px 13px, #00000017 0px -3px 5px;
+}
+
+.BackButton button:hover {
+  background-color: #1f669c;
+  border-color: #286ca0;
+  color: #f5a962;
+}
+
+.BackButton button:active {
+  transform: scale(0.98);
+}
+
+.BackButton h3 {
+  font-size: 20px;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.fa-arrow-left {
+  font-size: large;
+  margin-right: 5%;
+}
+
+.fa-arrow-circle-left :hover {
+  color: #f5a962;
+  font-size: x-large;
+  margin-right: 5%;
+}
+
+.EventDetail {
+  display: flex;
+  justify-content: center;
+  height: 73vh;
+  width: 80%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+.EventBodyDetail {
+  display: flex;
+  width: 80%;
+  padding: 0.5%;
+  box-shadow: #00000040 0px 54px 55px, #0000001f 0px -12px 30px,
+    #0000001f 0px 4px 6px, #0000002b 0px 12px 13px, #00000017 0px -3px 5px;
+  background-color: #dddddd;
+}
+
+.eventImage {
+  border: 2px solid;
+  background: url("../../Images/camera1.jpg");
+  width: 50%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1%;
+}
+
+.eventInformations {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  width: 50%;
+  margin: 1%;
+}
+
+.EventItem {
+  margin-bottom: 2%;
+  display: flex;
+}
+
+.exp {
+  display: flex;
+  flex-direction: column;
+}
+
+.TitleE {
+  color: #1f669c;
+}
+
+.eventData {
+  font-weight: 400;
+  font-size: large;
+  color: #1d1c1c;
+  margin-top: 0.5%;
+  margin-left: 2%;
+}
+
+.EventItem p {
+  height: 80px;
+  border: 1px solid red hidden;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 18px;
+}
+
+.EventItem h1 {
+  padding: 2% 2% 2% 0%;
+  color: #f5a962;
 }
