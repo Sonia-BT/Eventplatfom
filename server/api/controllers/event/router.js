@@ -3,7 +3,8 @@ const eventController = require("./controller");
 const eventRouter = express.Router();
 
 eventRouter.post("/", eventController.addEvent);
-/*don't forget to add a middleware*/
-eventRouter.get("/CreateEvent", eventController.getEvents);
+eventRouter.get("/", eventController.getEvents);
+eventRouter.put("/:id", eventController.updateEvent);
+eventRouter.delete("/:id", eventController.deleteEvent);
 
 module.exports = eventRouter;

@@ -8,7 +8,7 @@ const eventSchema = new Schema({
   },
   eventDescription: {
     type: String,
-    required: false,
+    required: true,
   },
   eventImage: {
     type: String,
@@ -29,8 +29,8 @@ const eventSchema = new Schema({
     max: "2024-12-31",
   },
   Online: {
-    type: Boolean,
-    default: false,
+    type: String,
+    default: "No",
     required: false,
   },
   publicationDate: {

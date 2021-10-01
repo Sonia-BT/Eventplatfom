@@ -5,6 +5,7 @@ module.exports = {
   postEvent: {
     body: {
       eventName: joi.string().required(),
+      eventDescription: joi.string.required(),
       eventImage: joi.string().required(),
       category: joi.string().required(),
       format: joi.string().required(),
