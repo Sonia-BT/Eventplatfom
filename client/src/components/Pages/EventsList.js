@@ -205,7 +205,7 @@ function EventsList() {
                         </div>
                         <div className="Fav">
                           {/* <i className="fas fa-heart"></i>  */}
-                          <i className="far fa-bookmark"></i>
+                          <i class="far fa-bookmark $"></i>
                         </div>
                       </div>
                     </div>
@@ -213,8 +213,8 @@ function EventsList() {
                 );
               })}
         </div>
-        {/* PAGINATION */}
-        {/* <div class="pagination">
+        {/* PAGINATION  */}
+        <div class="pagination">
           <a href="#">&laquo; Previous</a>
           <a href="#" class="active">
             1
@@ -222,7 +222,7 @@ function EventsList() {
           <a href="#">2</a>
           <a href="#">3</a>
           <a href="#">Next &raquo;</a>
-        </div> */}
+        </div>
 
         {pagination}
         {pageNumbers.map((number) => (
