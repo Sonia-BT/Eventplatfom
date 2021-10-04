@@ -33,11 +33,18 @@
   align-items: flex-start;
 }
 
-.AddImage {
-  /* border: 1px solid red; */
-  height: 30px;
-  width: 50%;
+.btn-primary {
   margin-top: 2%;
+  color: #f5a962;
+  background-color: #125d98;
+  border-color: #125d98;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  color: #f5a962;
+  background-color: #286ca0;
+  border-color: #286ca0;
 }
 
 .CreateEventForm {
@@ -127,3 +134,7 @@
 .EventCreator label {
   margin-top: 2%;
 }
+
+/* button.test > * {
+  pointer-events: none;
+} */

@@ -5,14 +5,26 @@ import axios from "axios";
 
 function CreateEvent() {
   const [events, setEvents] = useState([]);
-  const [eventTitle, SetEventTitle] = useState([]);
-  const [eventDescrip, SetEventDescrip] = useState([]);
-  const [category, SetCategory] = useState([]);
-  const [format, SetFormat] = useState([]);
-  const [online, SetOnline] = useState([]);
-  const [eventDate, SetEventDate] = useState([]);
-
+  const [eventTitle, SetEventTitle] = useState("");
+  const [eventDescrip, SetEventDescrip] = useState("");
+  const [category, SetCategory] = useState("");
+  const [format, SetFormat] = useState("");
+  const [online, SetOnline] = useState("");
+  const [eventDate, SetEventDate] = useState("");
+  const [eventImage, SetEventImage] = useState();
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+  var yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = "0" + dd;
+  }
+  if (mm < 10) {
+    mm = "0" + mm;
+  }
+  today = yyyy + "-" + mm + "-" + dd + "T08:30";
   const setData = async (e) => {
+    console.log("create");
     try {
       e.preventDefault();
       if (
@@ -30,7 +42,9 @@ function CreateEvent() {
           format: format,
           Online: online,
           eventDate: eventDate,
+          eventImage: eventImage,
         });
+        console.log("add:::::", data);
         setEvents([
           ...events,
           {
@@ -40,14 +54,9 @@ function CreateEvent() {
             format: data.data.format,
             Online: data.data.online,
             eventDate: data.data.eventDate,
+            eventImage: data.data.eventImage,
           },
         ]);
-        SetEventTitle("");
-        SetEventDescrip("");
-        SetCategory("");
-        SetFormat("");
-        SetOnline("");
-        SetEventDate("");
       }
     } catch (error) {
       console.log(error);
@@ -56,9 +65,16 @@ function CreateEvent() {
   return (
     <div className="CreateEvent">
       <div className="bodyEvent">
-        <form className="ImageForm">
+        <form className="ImageForm" action="/upload">
           <div className="EventImage">
-            <input name="eventImage" type="file" className="AddImage" />
+            <input
+              onChange={(e) => {
+                SetEventImage(e.target.value);
+              }}
+              name="eventImage"
+              type="file"
+              className="btn btn-primary"
+            />
           </div>
         </form>
         <form
@@ -71,11 +87,20 @@ function CreateEvent() {
           <label>
             <h4>Event Title</h4>
           </label>
-          <input name="eventName" className="Input Title" />
+          <input
+            onChange={(e) => {
+              SetEventTitle(e.target.value);
+            }}
+            name="eventName"
+            className="Input Title"
+          />
           <label>
             <h4>Event Description</h4>
           </label>
           <textarea
+            onChange={(e) => {
+              SetEventDescrip(e.target.value);
+            }}
             name="eventDescription"
             className="EventDescriptionInput"
             rows="3"
@@ -85,7 +110,12 @@ function CreateEvent() {
             <h4>Event Details</h4>
           </label>
           <div className="Selections">
-            <select name="category">
+            <select
+              onChange={(e) => {
+                SetCategory(e.target.value);
+              }}
+              name="category"
+            >
               <option value="Toutes les Catégories">Categorie</option>
               <option value="Affaires">Affaires</option>
               <option value="Art">Art</option>
@@ -98,7 +128,12 @@ function CreateEvent() {
               <option value="fêtes">fêtes</option>
               <option value="Gastronomie">Gastronomie</option>
             </select>
-            <select name="format">
+            <select
+              onChange={(e) => {
+                SetFormat(e.target.value);
+              }}
+              name="format"
+            >
               <option value="Format">Format</option>
               <option value="Cours">Cours</option>
               <option value="Conférences">Conférences</option>
@@ -110,27 +145,30 @@ function CreateEvent() {
               <option value="Séminaire">Séminaire</option>
               <option value="Visite">Visite</option>
             </select>
-            <select name="Online">
+            <select
+              onChange={(e) => {
+                SetOnline(e.target.value);
+              }}
+              name="Online"
+            >
               <option value="EventOnLine">Event Online</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
             </select>
           </div>
-          {/* <div className="EventCreator">
-            <label>
-              <h4>Creator :</h4>
-            </label>
-            <label>Username from the database</label>
-          </div> */}
 
           <label>
             <h4>Event Date</h4>
           </label>
           <input
+            onChange={(e) => {
+              SetEventDate(e.target.value);
+            }}
             name="eventDate"
             className="Input"
             type="datetime-local"
-            min={new Date().toISOString().slice(0, -14)}
+            // min={new Date().toISOString().slice(0, -14)}
+            min={today}
             max="2022-12-31T00:00"
           />
           <button type="submit">
