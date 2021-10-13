@@ -44,6 +44,22 @@ function NavBar() {
                 Event <i className="fas fa-plus"></i>
               </NavLink>
             </li>
+            <li>
+              userName <i className="fas fa-chevron-down"></i>
+              <ul className="Sub_Auth UserItems">
+                <NavLink to="/Myevents">
+                  <li>My events</li>
+                </NavLink>
+                <NavLink to="/MyFav">
+                  <li>My favories</li>
+                </NavLink>
+                <NavLink to="/">
+                  <li>
+                    Log out <i className="fas fa-power-off"></i>
+                  </li>
+                </NavLink>
+              </ul>
+            </li>
           </ul>
         </nav>
       </header>
