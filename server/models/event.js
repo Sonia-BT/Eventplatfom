@@ -1,5 +1,19 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate-v2");
 const { Schema } = mongoose;
+
+//Min DateTime
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+var yyyy = today.getFullYear();
+if (dd < 10) {
+  dd = "0" + dd;
+}
+if (mm < 10) {
+  mm = "0" + mm;
+}
+today = yyyy + "-" + mm + "-" + dd + " " + "T08:30";
 
 const eventSchema = new Schema({
   eventName: {
@@ -25,12 +39,12 @@ const eventSchema = new Schema({
   eventDate: {
     type: Date,
     required: true,
-    min: Date.now,
-    max: "2024-12-31",
+    min: today,
+    max: "2023-12-31 T00:00",
   },
   Online: {
     type: String,
-    default: "No",
+    default: false,
     required: false,
   },
   publicationDate: {
@@ -43,6 +57,8 @@ const eventSchema = new Schema({
     required: false,
   },
 });
+
+eventSchema.plugin(mongoosePaginate);
 
 const event = mongoose.model("Event", eventSchema);
 module.exports = event;
