@@ -44,7 +44,7 @@ function NavBar() {
                 Event <i className="fas fa-plus"></i>
               </NavLink>
             </li>
-            <li>
+            <li style={{ zIndex: 99 }}>
               userName <i className="fas fa-chevron-down"></i>
               <ul className="Sub_Auth UserItems">
                 <NavLink to="/Myevents">

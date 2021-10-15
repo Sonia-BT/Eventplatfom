@@ -7,6 +7,8 @@ import EventDetail from "./components/Pages/EventDetail";
 import NavBar from "./components/NavigationBar/NavBar";
 import ContactUs from "./components/Pages/ContactUs";
 import CreateEvent from "./components/UserPages/CreateEvent";
+import Myevents from "./components/UserPages/ListofEvents";
+import myFav from "./components/UserPages/FavEvent";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -33,7 +35,9 @@ function App() {
                 <Route path="/SignIn" component={SignIn} />
                 <Route path="/CreateEvent" component={CreateEvent} />
                 <Route exact path="/Events" component={EventsList} />
-                <Route path="/:Eventname" component={EventDetail} />
+                {/* <Route path="/:Eventname" component={EventDetail} /> */}
+                <Route path="/Myevents" component={Myevents} />
+                <Route path="/MyFav" component={myFav} />
               </Switch>
             </main>
             <footer>
