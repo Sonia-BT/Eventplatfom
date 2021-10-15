@@ -1,3 +1,4 @@
+const { events } = require("../../../models/event");
 const Event = require("../../../models/event");
 const User = require("../../../models/user");
 
@@ -30,7 +31,7 @@ const addEvent = async (req, res) => {
       eventImage,
       category,
       format,
-      eventDate,
+      eventDate: new Date(eventDate),
       Online,
       Creator,
     });
@@ -46,7 +47,37 @@ const addEvent = async (req, res) => {
 };
 
 const getEvents = async (req, res) => {
+  // const page = parseInt(req.query.page);
+  // const limit = parseInt(req.query.limit);
+  // const startIndex = (page - 1) * limit;
+  // const endIndex = page * limit;
+
+  // const options = {
+  //   page: page,
+  //   limit: limit,
+  // };s
+
+  // const events = await Event.paginate({}, options); //**Mise en commentaire car elle m'affiché une erreur**//
   const events = await Event.find({});
+
+  // if (endIndex < events.length) {
+  //   events.nextPage = {
+  //     page: page + 1,
+  //     limit: limit,
+  //   };
+  // }
+  // if (startIndex > 0) {
+  //   events.prevPage = {
+  //     page: page - 1,
+  //     limit: limit,
+  //   };
+  // }
+
+  // const Listofevents = {};
+  // Listofevents.Listofevents = events.slice(startIndex, endIndex);
+
+  console.log(events);
+
   res.status(200).send({
     data: events,
   });
@@ -54,7 +85,7 @@ const getEvents = async (req, res) => {
 
 const getEventByID = async (req, res) => {
   const { id } = req.params;
-  const event = await Event.findById(id);
+  const event = await Event.find({ eventName: id });
   res.status(200).send({
     data: event,
   });

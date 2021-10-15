@@ -1,7 +1,7 @@
 .EventPage {
   margin-top: 2px;
   display: flex;
-  height: 105vh;
+  height: 108vh;
 }
 
 .EventFilter {
@@ -9,14 +9,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-evenly; */
   background: #dddddd;
 }
 
 .GlobalEvents {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
+  height: 105vh;
 }
 .EventList {
   display: flex;
@@ -24,6 +25,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 1%;
+  border: 1px solid red hidden;
 }
 
 .EventList :hover {
@@ -45,24 +47,28 @@
   color: #3c8dad;
 }
 
+.searchBar .fa-search {
+  font-weight: 600;
+  font-size: xx-large;
+}
+
 .SearchForm {
   display: flex;
-  justify-content: center;
-  justify-content: space-evenly;
   /* border: salmon 1px solid; */
   height: 8vh;
   width: 100%;
 }
 .SearchInput {
-  width: 73%;
+  width: 96%;
   height: 44px;
   align-self: center;
   outline: none;
   border-radius: 5px;
   border: none;
   padding-left: 1%;
+  margin-left: 1%;
 }
-.SearchButton {
+/* .SearchButton {
   align-self: center;
   height: 44px;
   width: 23%;
@@ -95,9 +101,16 @@
 
 .SearchButton .fas:hover {
   color: #fab667;
-}
+} */
 
 /*---------------------------------Filter Part-----------------------------*/
+
+select {
+  margin: 2%;
+  /* font-family: inherit; */
+  /* font-size: inherit; */
+  line-height: inherit;
+}
 
 .formFilter {
   display: flex;
@@ -110,6 +123,11 @@
 .formFilter h1 {
   margin-left: 1%;
   color: #3c8dad;
+}
+
+.formFilter .fa-filter {
+  font-weight: 600;
+  font-size: xx-large;
 }
 
 .Filters {
@@ -126,12 +144,14 @@
   /* border: 1px solid black; */
   align-items: center;
   height: 8vh;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding-left: 2%;
+  padding-right: 5%;
 }
 
 .OnlineEvent label {
   font-weight: 600;
-  font-size: 2.5vh;
+  font-size: 25px;
 }
 /*
 .OnlineEvent button {
@@ -156,7 +176,7 @@
   transform: scale(0.98);
 } */
 
-.OnlineEvent button {
+/* .OnlineEvent button {
   width: 23%;
   height: 44px;
   font-size: 600;
@@ -176,9 +196,9 @@
 .ButtonOFF {
   color: #fff;
   background: #f5a962;
-}
+} */
 
-.Categories {
+.Category {
   height: 5vh;
   width: 90%;
   outline: none;
@@ -196,7 +216,8 @@
 h2 {
   margin-left: 1%;
   margin-bottom: 2%;
-  color: #3c8dad;
+  font-weight: 600;
+  font-size: 25px;
 }
 .Date {
   height: 5vh;
@@ -222,7 +243,7 @@ h2 {
 .EventCard {
   display: flex;
   flex-direction: column;
-  margin: 1%;
+  margin: 1% 1% 1% 1.8%;
   height: 45vh;
   width: 22%;
   box-shadow: 0px 3px 3px #7c7b7b;
@@ -287,24 +308,112 @@ h2 {
 
 .pagination {
   display: inline-block;
-  align-self: center;
-  margin-top: 0.5%;
+  /* align-self: center; */
+  /* justify-content: space-between;
+  width: 50%; */
+  /* width: 100%; */
+  /* align-items: center;
+  justify-content: center; */
+  width: 100%;
 }
 
-.pagination a {
+.pagination button {
   color: black;
   float: left;
   padding: 8px 16px;
-  text-decoration: none;
+  outline: none;
+  align-self: center;
+  /* width: 20%; */
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 3px 3px #7c7b7b;
+  margin-top: 1%;
+  background: #125d98;
+  color: #dddddd;
+  font-weight: 600;
 }
 
-.pagination a.active {
+.Previous_button {
+  margin-left: 79.5%;
+  margin-right: 0.5%; /*2*/
+  width: 9%;
+}
+
+.Next_button {
+  width: 9%;
+  /* margin-left: 2%; */
+}
+
+.pagination button.active {
   background-color: #f5a962;
-  color: white;
+  color: #dddddd;
+  border-radius: 5px;
+  border-color: red;
+}
+
+.pagination button:hover:not(.active) {
+  border-color: #f5a962;
+  background-color: #f5a962;
+  color: #dddddd;
   border-radius: 5px;
 }
 
-.pagination a:hover:not(.active) {
-  background-color: #ddd;
-  border-radius: 5px;
+/*--------------------------The toggle Switch ---------------------------*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 6px;
+  bottom: 6px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #f5a962;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ccc;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

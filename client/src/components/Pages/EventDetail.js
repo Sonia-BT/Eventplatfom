@@ -11,7 +11,7 @@ function EventDetail() {
   const getData = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/event` /*/${Eventname}*/
+        `http://localhost:5000/event/${Eventname}`
       );
       setEvents(data);
     } catch (error) {
@@ -28,7 +28,8 @@ function EventDetail() {
     <div className="DetailPage">
       <div className="BackButton">
         <button type="submit" onClick={() => history.goBack()}>
-          <i class="fas fa-arrow-left"></i> <h3>Back</h3>
+          <i class="fas fa-arrow-left"></i>
+          <h3>Back</h3>
         </button>
       </div>
       <div className="EventDetail">

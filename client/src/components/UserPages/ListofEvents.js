@@ -106,7 +106,7 @@ const ListofEvents = () => {
         </form>
       </div>
       <div className="userListofEvent">
-        <div className="userList">
+        <div className="userList scrollbar scrollbar-primary">
           <div className="userEvent">
             <div className="userEventPic">
               <img alt="Image Undefined"></img>
@@ -132,11 +132,11 @@ const ListofEvents = () => {
               </div>
             </div>
           </div>
+          <div class="force-overflow"></div>
         </div>
-        {/* <div className="scrollbarEvents">
-            <div class="scrollbar scrollbar-primary">
-              <div class="force-overflow"></div>
-            </div>
+
+        {/* <div class="scrollbar scrollbar-primary">
+            <div class="force-overflow"></div>
           </div> */}
       </div>
     </div>

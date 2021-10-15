@@ -12,6 +12,7 @@ function EventsList() {
   const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
   const [eventsPerPage] = useState(8);
+  const [month, setMonth] = useState(0);
 
   const getData = async () => {
     try {
@@ -22,7 +23,7 @@ function EventsList() {
     }
   };
 
-  events && console.log(events);
+  events.data && console.log(events);
 
   useEffect(() => {
     getData();
@@ -32,26 +33,44 @@ function EventsList() {
     setClick(!click);
   }
 
+  const inc = () => {
+    if (indexOfLastEvent < events.data.length - 1)
+      setCurrentPage(currentPage + 1);
+
+    console.log(indexOfLastEvent);
+    console.log(currentPage);
+  };
+  const dec = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+    console.log(currentPage);
+  };
+
   //Get current events (For limited the number of events in one page)
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
 
-  //Pagination
-  const pageNumbers = [];
-  function pagination(pageNumbers, eventsPerPage) {
-    for (let i = 1; i <= Math.ceil(events.data.length / eventsPerPage); i++) {
-      pageNumbers.push(i);
-    }
-  }
+  //  function pagination (pageNumbers, eventsPerPage) {
+  //   for (let i = 1; i <= Math.ceil(events.data.length / eventsPerPage); i++) {
+  //     return pageNumbers.push(i);
+  //   }
+  // }
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // function Pagination(eventsPerPage) {
+  //   return events.data && Math.ceil(events.data.length / eventsPerPage);
+  // }
+
+  // const paginate = Pagination(eventsPerPage);
+  // // console.log("paginate : ", paginate);
 
   return (
     <div className="EventPage">
       {/* the Filter Bar */}
       <div className="EventFilter">
         <div className="searchBar">
-          <h1>Search Bar</h1>
+          <h1>
+            Search Bar <i className="fas fa-search"></i>
+          </h1>
           <form className="SearchForm" onSubmit={(e) => e.preventDefault()}>
             <input
               className="SearchInput"
@@ -59,30 +78,36 @@ function EventsList() {
               onChange={(e) => setsearchEvent(e.target.value)}
               value={searchEvent}
             />
-            <button className="SearchButton">
+            {/* <button className="SearchButton">
               <i class="fas fa-search"></i>
-            </button>
+            </button> */}
           </form>
         </div>
         <form className="formFilter">
-          <h1>Filter</h1>
+          <h1>
+            Filter <i className="fas fa-filter"></i>
+          </h1>
           <div className="Filters">
             <div className="OnlineEvent">
-              <label> Recherche d'événements en ligne </label>
-              <button
+              <label> Online Event </label>
+              {/* <button
                 onClick={handelclick}
                 className={click ? "ButtonON" : "ButtonOFF"}
               >
                 {click ? "ON" : "OFF"}
-              </button>
+              </button> */}
+              <label className="switch">
+                <input type="checkbox" />
+                <span onClick={handelclick} className="slider round"></span>
+              </label>
             </div>
-            <h2>Catégories</h2>
+            <h2>Category</h2>
             <select
               name="dropdown"
               onChange={(e) => {
                 setCategory(e.target.value);
               }}
-              className="Categories"
+              className="Category"
             >
               <option value="Toutes les Catégories">
                 Toutes les Catégories
@@ -118,23 +143,29 @@ function EventsList() {
               <option value="Visite">Visite</option>
             </select>
             <h2>Date</h2>
-            <select name="dropdown" className="Date Mois">
-              <option value="N'importe Quel Date">N'importe Quel Date</option>
-              <option value="Janvier">Janvier</option>
-              <option value="Février">Février</option>
-              <option value="Mars">Mars</option>
-              <option value="Avril">Avril</option>
-              <option value="Mai">Mai</option>
-              <option value="Juin">Juin</option>
-              <option value="Juillet">Juillet</option>
-              <option value="Aout">Aout</option>
-              <option value="Septembre">Septembre</option>
-              <option value="Octobre">Octobre</option>
-              <option value="Novembre">Novembre</option>
-              <option value="Décembre">Décembre</option>
+            <select
+              name="dropdown"
+              className="Date Mois"
+              onChange={(e) => {
+                setMonth(e.target.value);
+              }}
+            >
+              <option value={0}>Mois</option>
+              <option value={1}>Janvier</option>
+              <option value={2}>Février</option>
+              <option value={3}>Mars</option>
+              <option value={4}>Avril</option>
+              <option value={5}>Mai</option>
+              <option value={6}>Juin</option>
+              <option value={7}>Juillet</option>
+              <option value={8}>Aout</option>
+              <option value={9}>Septembre</option>
+              <option value={10}>Octobre</option>
+              <option value={11}>Novembre</option>
+              <option value={12}>Décembre</option>
             </select>
             <select name="dropdown" className="Date Jours">
-              <option value="N'importe quel Jours">N'importe Quel Jour</option>
+              <option value="Jours">Jours</option>
               <option value="Samedi">Samedi</option>
               <option value="Dimanche">Dimanche</option>
               <option value="Lundi">Lundi</option>
@@ -144,10 +175,9 @@ function EventsList() {
               <option value="Vendredi">Vendredi</option>
             </select>
             <select name="dropdown" className="Date Heure">
-              <option value="N'importe Quel Heure">N'importe Quel Heure</option>
-              <option value="Matin">Matin</option>
-              <option value="Aprés-midi">Aprés-midi</option>
-              <option value="Soir">Soir</option>
+              <option value="Heure">Heure</option>
+              <option value="Month">Matin</option>
+              <option value="Hour">Aprés-midi</option>
             </select>
           </div>
         </form>
@@ -167,13 +197,23 @@ function EventsList() {
                   el.category.toUpperCase().includes(searchEvent.toUpperCase())
               )
               .filter((el) => {
-                if (format == "Tout les Formats") return true;
-                return el.format == format;
+                if (click === false) return true;
+
+                return el.Online === "true";
               })
               .filter((el) => {
-                if (category == "Toutes les Catégories") return true;
-                return el.category == category;
+                if (format === "Tout les Formats") return true;
+                return el.format === format;
               })
+              .filter((el) => {
+                if (category === "Toutes les Catégories") return true;
+                return el.category === category;
+              })
+              // .filter((el) => {
+              //   if (month === 0) return true;
+              //   return console.log(el.eventDate.getMonth() + 1);
+              // })
+
               .map((el) => {
                 return (
                   <div className="EventCard">
@@ -205,7 +245,7 @@ function EventsList() {
                         </div>
                         <div className="Fav">
                           {/* <i className="fas fa-heart"></i>  */}
-                          <i class="far fa-bookmark $"></i>
+                          <i className="far fa-bookmark $"></i>
                         </div>
                       </div>
                     </div>
@@ -213,25 +253,14 @@ function EventsList() {
                 );
               })}
         </div>
-        {/* PAGINATION  */}
-        <div class="pagination">
-          <a href="#">&laquo; Previous</a>
-          <a href="#" class="active">
-            1
-          </a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">Next &raquo;</a>
+        <div className="pagination">
+          <button className="Previous_button" onClick={dec}>
+            &laquo; Previous
+          </button>
+          <button className="Next_button" onClick={inc}>
+            Next &raquo;
+          </button>
         </div>
-
-        {pagination}
-        {pageNumbers.map((number) => (
-          <div className="Pagination">
-            <a onClick={() => paginate(number)} href="!#">
-              {number}
-            </a>
-          </div>
-        ))}
       </div>
     </div>
   );
