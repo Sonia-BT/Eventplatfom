@@ -16,16 +16,16 @@
   background-color: #dddddd;
 }
 
-.ImageForm {
-  width: 50%;
+.EventForm {
   /* border: solid 1px cyan; */
   display: flex;
   justify-content: center;
+  width: 100%;
   padding: 1%;
 }
 .EventImage {
   background: url("../../Images/camera1.jpg");
-  width: 100%;
+  width: 50%;
   background-size: cover;
   border: 2px #1d1c1c solid;
   display: flex;
@@ -81,6 +81,7 @@
 .Selections select {
   height: 30px;
   width: 32%;
+  align-self: center;
 }
 /* 
 .EventCreator {
@@ -90,10 +91,6 @@
 .EventCreator label {
   margin-right: 1%;
 }*/
-
-.EventDescriptionInput {
-  margin-bottom: 2%;
-}
 
 .CreateEventForm button {
   display: flex;

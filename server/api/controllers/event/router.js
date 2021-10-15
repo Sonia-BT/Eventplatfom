@@ -4,6 +4,7 @@ const eventRouter = express.Router();
 
 eventRouter.post("/", eventController.addEvent);
 eventRouter.get("/", eventController.getEvents);
+eventRouter.get("/:id", eventController.getEventByID);
 eventRouter.put("/:id", eventController.updateEvent);
 eventRouter.delete("/:id", eventController.deleteEvent);
 
