@@ -3,6 +3,9 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Formik } from "formik";
+import * as yup from "yup";
+//import FormikControl from "./FormikControl";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -37,60 +40,104 @@ function SignIn() {
   };
 
   return (
-    <div className="Auth_Body">
-      <div className="BigContainer">
-        <form
-          className="SignIn_SignUp In"
-          onSubmit={(e) => {
-            setData(e);
-          }}
-        >
-          <div className="SignInForm">
-            <h3>Login</h3>
+    <Formik
+      initialValues={{
+        email: "",
+        password: "",
+      }}
+      validationSchema={yup.object().shape({
+        email: yup.string().email().required("Email is Required"),
+        password: yup.string().required("Password is Required"),
+      })}
+      onSubmit={(values) => {
+        console.log("Submitting :", values);
+      }}
+    >
+      {(props) => {
+        const {
+          values,
+          touched,
+          errors,
+          isSubmitting,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+        } = props;
+        return (
+          <div className="Auth_Body">
+            <div className="BigContainer">
+              <form
+                className="SignIn_SignUp In"
+                // onSubmit={(e) => {
+                //   setData(e);
+                // }}
+                onSubmit={handleSubmit}
+              >
+                <div className="SignInForm">
+                  <h3>Login</h3>
+                </div>
+                <div className="message messageError"></div>
+                <div className="InfosForm">
+                  <div className="Item">
+                    <h5 className="Title">UserName/email</h5>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.email}
+                      placeholder=" MarkSmith@gmail.com"
+                      className={touched.email && "error"}
+                    />
+                    {touched.email && (
+                      <div className="input-feedback">{errors.email}</div>
+                    )}
+                  </div>
+                  <div className="inputMessageError"></div>
+                  <div className="Item">
+                    <h5 className="Title">Password</h5>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      className="InputError"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.password}
+                      placeholder=" ******"
+                      className={touched.password && "error"}
+                    />
+                    {touched.password && (
+                      <div className="input-feedback">{errors.password}</div>
+                    )}
+                  </div>
+                  <div className="Item">
+                    <button type="submit" disabled={isSubmitting}>
+                      Submit
+                    </button>
+                  </div>
+                  <div className="formText">
+                    <p>
+                      <a className="formLink" href="./SignUp">
+                        Forgot Your Password?
+                      </a>
+                    </p>
+                  </div>
+                  <div className="formText">
+                    <p>
+                      <a className="formLink" href="./SignUp">
+                        Don't have an account? Create an account?
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
-          <div className="message messageError"></div>
-          <div className="InfosForm">
-            <div className="Item">
-              <h5 className="Title">UserName/email</h5>
-              <input
-                type="text"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                placeholder=" Mark89/MarkSmith@gmail.com"
-              ></input>
-            </div>
-            <div className="inputMessageError"></div>
-            <div className="Item">
-              <h5 className="Title">Password</h5>
-              <input
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                // className="InputError"
-                placeholder=" **********************"
-              ></input>
-            </div>
-            <div className="Item">
-              <button type="submit">Submit</button>
-            </div>
-            <div className="formText">
-              <p>
-                <a className="formLink" href="./SignUp">
-                  Forgot Your Password?
-                </a>
-              </p>
-            </div>
-            <div className="formText">
-              <p>
-                <a className="formLink" href="./SignUp">
-                  Don't have an account? Create an account?
-                </a>
-              </p>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+        );
+      }}
+    </Formik>
   );
 }
 
